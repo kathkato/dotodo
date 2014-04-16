@@ -1,0 +1,27 @@
+<h2><%= @category.label%> Tasks</h2>
+<br>
+
+<table>
+	<thead>
+		<tr>
+			<th>Task</th>
+			<th>Due date</th>
+			<th>Completion date</th>
+			<th>Sync</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<% @category.tasks.each do |task| %>
+		<tr>
+			<td><%= task.label %></td>
+			<td><%= task.due_date %></td>
+			<td><%= task.completion_date %></td>
+			<td><%= task.sync %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+<br>
+
+<%= link_to 'Back', categories_path %>

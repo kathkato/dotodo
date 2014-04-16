@@ -1,0 +1,38 @@
+/* From: http://pythoughts.com/table-style-css/ */
+
+table {
+	border-collapse: collapse;
+  	color: #333;
+  	background: #fffff0;
+	width: 100%;
+}
+
+td, th {
+	text-align: left;
+	padding: 0.5em;
+	color: #443333;
+}
+
+thead th, tfoot th {
+	text-align: left;
+	font-size: 1em;
+	font-weight: bold;
+	color: #444;
+	background: #dbd9c0;
+  }
+
+tbody tr {
+	background-color:#fff;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+tbody td {
+	color:#414141;
+	padding:5px;
+	text-align:left;
+}
+
+tbody th {
+	text-align:left;
+	padding:2px;
+}

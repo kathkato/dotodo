@@ -4,8 +4,12 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    #@tasks = Task.all
-    @tasks = Task.where(completion_date: nil)
+    if current_user
+      categories = current_user.categories
+      @tasks = Task.where(completion_date: nil, category_id: categories)
+    else
+      @tasks = Task.none
+    end
   end
 
   # GET /tasks/1

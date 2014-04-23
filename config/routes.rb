@@ -1,4 +1,8 @@
 Dotodo::Application.routes.draw do
+  resources :user_sessions
+
+  resources :users
+
   resources :tasks
 
   resources :categories
@@ -7,11 +11,16 @@ Dotodo::Application.routes.draw do
 
   get 'tasks/:id/complete', :to => 'tasks#complete', :as => :complete
 
+  get 'login', :to => 'user_sessions#new'
+  get 'logout', :to => 'user_sessions#destroy'
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :tasks
-      get 'tasks/:id/complete', :to => 'tasks#complete', :as => :api_complete
       resources :categories
+      get 'categories', :to => 'categories#index'
+      resources :tasks
+      get 'tasks/:catid', :to => 'tasks#index'
+      get 'tasks/:id/complete', :to => 'tasks#complete', :as => :api_complete
     end
   end
 

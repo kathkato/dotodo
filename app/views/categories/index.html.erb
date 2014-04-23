@@ -6,6 +6,7 @@ All Categories
   <thead>
     <tr>
       <th>Label</th>
+      <th>Owner</th>
       <th>Sync</th>
       <th></th>
       <th></th>
@@ -17,6 +18,7 @@ All Categories
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.label %></td>
+        <td><%= category.user.username %></td>
         <td><%= category.sync %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
@@ -28,4 +30,6 @@ All Categories
 
 <br>
 
+<% if current_user %>
 <%= link_to 'New Category', new_category_path %>
+<% end %>
